@@ -73,6 +73,22 @@ def main():
             print ("Min:", min(assignmentScores))
             print ("Avg:", sum(assignmentScores)/len(assignmentScores))
             print ("Max:", max(assignmentScores))
+    elif option == "3":
+        assignmentName = input("what is the assignment name: ")
+        if assignmentName not in assignmentNames:
+            print("Assignment not found")
+        else:
+            assignmentID = assignmentIDs[assignmentNames.index(assignmentName)]
+            assignmentScores = []
+            for i in range(0, len(submissionAssignment)):
+                if assignmentID == submissionAssignment[i]:
+                    assignmentScores.append(int(submissionScore[i]))
+            if assignmentScores:
+                plt.hist(assignmentScores, bins=[0, 25, 50, 75, 100])
+                plt.title(f"Score Distribution: {assignmentName}")
+                plt.xlabel("Score (%)")
+                plt.ylabel("Number of Students")
+                plt.show()
 
 
 if __name__=="__main__":
