@@ -59,7 +59,7 @@ def main():
                     weight = assignmentWeight[assignmentIndex]
                     maxScore += weight
                     studentScore += int(score) * int(weight)
-            print(f"{(studentScore / maxScore):.2f}")
+            print(f"{(studentScore / maxScore):.0f}")
     elif option == "2":
         assignmentName = input("What is the assignment name: ")
         if assignmentName not in assignmentNames:
